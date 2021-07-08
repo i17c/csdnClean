@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "CSDN绿色版",
+    "version": "1.0",
+    "icons": {
+        "64": "icon.png",
+        "128": "icon_128.png"
+    },
+    "description": "CSDN去除广告,去除焦点图,去除推荐插件, powered by 独行, for clean world ... no pain, no ad!",
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [ {
+        "js": [ "js/jquery.js","js/clean.js" ],
+        "matches": [ "https://blog.csdn.net/*/article/details/*","http://blog.csdn.net/*/article/details/*","https://bbs.csdn.net/topics/*","http://bbs.csdn.net/topics/*" ],
+        "run_at": "document_end"
+    } ],
+    "background": {
+        "scripts": ["js/background.js"],
+        "persistent": false
+    }
+    ,"permissions": ["contextMenus", "cookies", "tabs", "notifications", "background", "storage" , "https://blog.csdn.net/*","http://blog.csdn.net/*" ]
+}
